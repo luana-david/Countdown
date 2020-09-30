@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color: #000;
+}
+
+h1 {
+    color: rgb(245, 246, 248);
+    letter-spacing: 4px;
+    font-size: 5rem;
+    padding: 0.5em;
+    font-family: sans-serif;
+}
+
+p {
+    color: rgb(245, 246, 248);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
