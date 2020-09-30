@@ -23,5 +23,13 @@ function animation() {
     }
 }
 
+var currentYear = new Date().getFullYear()
+var currentMonth = new Date().getMonth()
+var daysInCurrentMonth =  new Date(currentYear, currentMonth+1, 0).getDate()
+
+for(var i=0; i<daysInCurrentMonth; i++) {
+    var count = i+1
+    $(".days").append("<div>" + count + "</div>")
+}
+
 $(document).on('load', animation())
-//console.log(animation())
