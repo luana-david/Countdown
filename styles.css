@@ -90,14 +90,22 @@ p {
     width: 20%;
     max-width: 300px;
     height: auto;
+    margin-top: 1rem;
 }
 
-.calendar-header, .calendar-content {
+.calendar-header, .calendar-content, .days {
     display: flex;
 }
 
-.calendar-content {
+.calendar-content, .days {
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.days div {
+    width: 14.28%;
+    text-align: center;
+    padding: 0.2em;
 }
 
 .calendar-header {
