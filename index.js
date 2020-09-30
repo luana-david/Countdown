@@ -26,10 +26,25 @@ function animation() {
 var currentYear = new Date().getFullYear()
 var currentMonth = new Date().getMonth()
 var daysInCurrentMonth =  new Date(currentYear, currentMonth+1, 0).getDate()
+var firstDay = new Date(currentYear, currentMonth, 1).getDay()
+var lastDay = new Date(currentYear, currentMonth, daysInCurrentMonth).getDay()
+
+var lastMonth = currentMonth-1
+var daysLastMonth = new Date(currentYear, lastMonth+1, 0).getDate()
 
 for(var i=0; i<daysInCurrentMonth; i++) {
     var count = i+1
-    $(".days").append("<div>" + count + "</div>")
+    $(".days").append('<div id="day">' + count + '</div>')
 }
+
+for(let i=firstDay-1;i>0;i--) {
+    $("<div></div>").insertBefore("#day")
+}
+
+for(let i=0; i<=lastDay;i++) {
+    $(".days").append("<div></div>")
+}
+
+console.log(firstDay)
 
 $(document).on('load', animation())
