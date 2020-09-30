@@ -59,7 +59,7 @@ p {
     }
 }
 
-/* Style Calendar */
+/* Select Calendar */
 
 .btn {
     border: none;
@@ -81,4 +81,25 @@ p {
 
 .btn:hover {
     background-position: left;
+}
+
+/* Style Calendar */
+
+.calendar {
+    background-color: white;
+    width: 20%;
+    max-width: 300px;
+    height: auto;
+}
+
+.calendar-header, .calendar-content {
+    display: flex;
+}
+
+.calendar-content {
+    justify-content: space-around;
+}
+
+.calendar-header {
+    justify-content: center;
 }
