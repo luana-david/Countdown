@@ -32,6 +32,21 @@ var lastDay = new Date(currentYear, currentMonth, daysInCurrentMonth).getDay()
 var lastMonth = currentMonth-1
 var daysLastMonth = new Date(currentYear, lastMonth+1, 0).getDate()
 
+var Months = ['January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December']
+
+$("#currentMonth").text(Months[currentMonth])
+
 for(var i=0; i<daysInCurrentMonth; i++) {
     var count = i+1
     $(".days").append('<div id="day">' + count + '</div>')
