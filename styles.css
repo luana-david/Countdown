@@ -6,6 +6,7 @@
 
 body {
     background-color: #000;
+    font-family: sans-serif;
 }
 
 h1 {
@@ -87,8 +88,8 @@ p {
 
 .calendar {
     background-color: white;
-    width: 20%;
-    max-width: 300px;
+    width: 25%;
+    min-width: 350px;
     height: auto;
     margin-top: 1rem;
 }
@@ -97,17 +98,30 @@ p {
     display: flex;
 }
 
-.calendar-content, .days {
-    justify-content: space-around;
+.calendar-content {
+    justify-content: space-between;
+}
+
+.days {
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.days div {
+.days div, .calendar-content div {
     width: 14.28%;
-    text-align: center;
-    padding: 0.2em;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2em;
 }
 
 .calendar-header {
     justify-content: center;
+    height: 50px;
+    background-color: thistle;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-content div {
+    font-weight: 700;
 }
