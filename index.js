@@ -11,3 +11,17 @@ $('input#date').change(event => {
         $("#result").text(render)
     }, 1000)
 })
+
+function animation() {
+    var el ='Countdown!'
+    var elSplit = el.split('')
+    var delay = 100
+    for(var i=0; i<elSplit.length;i++) {
+        var letter = elSplit[i]
+        $("#animated").append('<span style="animation-delay:' +delay+'ms;">'+letter+'</span>')
+        delay+=100
+    }
+}
+
+$(document).on('load', animation())
+//console.log(animation())
