@@ -199,3 +199,26 @@ button:focus {
 #currentYear {
     text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
 }
+
+#result {
+    display: flex;
+}
+
+.result + .result {
+    margin-left: 1em;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1em;
+    font-size: 3rem;
+    transform: skew(-10deg);
+    font-weight: 900;
+    color: white;
+}
+
+.result span + span {
+    font-weight: normal;
+}

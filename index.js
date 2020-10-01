@@ -124,15 +124,27 @@ $(".days").on('click', '#day' , function() {
     calcDate = new Date(currentYear, currentMonth, $(this).text())
     $(this).parent().children("#day").removeClass("selectedDay")
     $(this).addClass("selectedDay")
+    $(".selectedDateInfo").text('Until '+ $(this).text() + ' ' + Months[currentMonth] + ' ' + currentYear)
     setInterval(() => {
         const daysLeft = Math.floor(Math.abs((calcDate - new Date()))/(1000 * 60 *60 *24))
         const hoursLeft = Math.floor((23 - new Date().getHours()))
         const minutesLeft = Math.floor((59 - new Date().getMinutes()))
         const secondsLeft = Math.floor((59 - new Date().getSeconds()))
-        const render = daysLeft + ' ' + hoursLeft + ' ' + minutesLeft + ' ' + secondsLeft
-        $("#result").text(render)
+        if(calcDate < new Date()) {
+            $("#daysLeft").text('0')
+            $("#hoursLeft").text('0')
+            $("#minutesLeft").text('0')
+            $("#secondsLeft").text('0') 
+        } else {
+            $("#daysLeft").text(daysLeft)
+            $("#hoursLeft").text(hoursLeft)
+            $("#minutesLeft").text(minutesLeft)
+            $("#secondsLeft").text(secondsLeft)
+        }
+        $(".info").slideDown()
     }, 1000)
 })
 
 $(document).on('load', animation())
+$(document).on('load', $(".info").hide())
 $(document).on('load', monthCalc(new Date().getMonth(), currentYear))
