@@ -201,7 +201,6 @@ button:focus {
 }
 
 #result {
-    color: white;
     display: flex;
 }
 
@@ -217,6 +216,7 @@ button:focus {
     font-size: 3rem;
     transform: skew(-10deg);
     font-weight: 900;
+    color: white;
 }
 
 .result span + span {
