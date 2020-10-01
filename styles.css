@@ -82,7 +82,7 @@ p {
             animation: btn 1s linear 1s both;
 }
 
-.btn:focus {
+button:focus {
     outline: 0;
 }
 
@@ -111,6 +111,7 @@ p {
 .days {
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 0.75rem;
 }
 
 .days div, .calendar-content div {
@@ -130,4 +131,24 @@ p {
 
 .calendar-content div {
     font-weight: 700;
+}
+
+.footer {
+    background-color: rgb(156, 163, 163);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.prev, .next {
+    background-color: rgb(123, 129, 129);
+    border: none;
+    border-radius: 20px;
+    padding: 0.75em;
+    cursor: pointer;
+}
+
+.prev:active, .next:active {
+    background-color: rgb(94, 100, 100);
 }
