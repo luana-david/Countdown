@@ -118,7 +118,8 @@ button:focus {
     width: 14.28%;
     display: flex;
     justify-content: center;
-    margin-top: 0.2em;
+    padding-top: 0.2em;
+    height: 25px;
 }
 
 .calendar-header {
@@ -133,8 +134,13 @@ button:focus {
     font-weight: 700;
 }
 
+#day:hover {
+    background-color: rgb(217, 224, 224);
+    border-radius: 5px;
+}
+
 .footer {
-    background-color: rgb(156, 163, 163);
+    background-color: rgb(175, 184, 184);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -142,13 +148,13 @@ button:focus {
 }
 
 .prev, .next {
-    background-color: rgb(123, 129, 129);
+    background-color: rgb(148, 155, 155);
     border: none;
     border-radius: 20px;
     padding: 0.75em;
     cursor: pointer;
 }
 
-.prev:active, .next:active {
+.prev:hover, .next:hover, .prev:active, .next:active {
     background-color: rgb(94, 100, 100);
 }
