@@ -23,14 +23,51 @@ function animation() {
     }
 }
 
+var date = new Date()
 var currentYear = new Date().getFullYear()
 var currentMonth = new Date().getMonth()
-var daysInCurrentMonth =  new Date(currentYear, currentMonth+1, 0).getDate()
-var firstDay = new Date(currentYear, currentMonth, 1).getDay()
-var lastDay = new Date(currentYear, currentMonth, daysInCurrentMonth).getDay()
+var daysInCurrentMonth 
+var firstDay 
+var lastDay 
 
-var lastMonth = currentMonth-1
-var daysLastMonth = new Date(currentYear, lastMonth+1, 0).getDate()
+var lastMonth 
+var daysLastMonth
+
+function monthCalc(month, year) {
+    currentMonth = month
+    currentYear = year
+    daysInCurrentMonth =  new Date(currentYear, month+1, 0).getDate()
+    firstDay = new Date(year, month, 1).getDay()
+    if(firstDay===0) {
+        firstDay=7
+    }
+    lastDay = new Date(year, month, daysInCurrentMonth).getDay()
+    if(lastDay===0) {
+        lastDay=7
+    }
+
+    lastMonth = month-1
+    daysLastMonth = new Date(year, lastMonth+1, 0).getDate()
+
+    $("#currentMonth").text(Months[currentMonth])
+    $("#currentYear").text(year)
+
+    $(".days").empty()
+
+    for(var i=0; i<daysInCurrentMonth; i++) {
+        var count = i+1
+        $(".days").append('<div id="day">' + count + '</div>')
+    }
+
+    for(let i=firstDay-1;i>0;i--) {
+        $("<div></div>").insertBefore("#day")
+    }
+
+    for(let i=lastDay; i<7;i++) {
+        $(".days").append("<div></div>")
+    }
+    console.log(currentMonth)
+}
 
 var Months = ['January',
             'February',
@@ -45,7 +82,22 @@ var Months = ['January',
             'November',
             'December']
 
-$("#currentMonth").text(Months[currentMonth])
+$(".next").on('click', function() {
+    var nextMonth
+    var nextYear
+    if(currentMonth<11) {
+        nextMonth = currentMonth+1
+        nextYear = currentYear
+    } else {
+        nextMonth = 0
+        nextYear = currentYear+1
+    }
+    
+    monthCalc(nextMonth, nextYear)
+
+    console.log(currentYear)
+
+})
 
 for(var i=0; i<daysInCurrentMonth; i++) {
     var count = i+1
@@ -63,3 +115,4 @@ for(let i=lastDay; i<7;i++) {
 console.log(firstDay)
 
 $(document).on('load', animation())
+$(document).on('load', monthCalc(new Date().getMonth(), currentYear))
