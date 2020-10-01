@@ -11,6 +11,10 @@ function animation() {
     }
 }
 
+$(".btn").on('click', function() {
+    $(".calendar").slideToggle(300)
+})
+
 var date = new Date()
 var currentYear = new Date().getFullYear()
 var currentMonth = new Date().getMonth()
