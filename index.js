@@ -110,20 +110,5 @@ $(".prev").on('click', function() {
     monthCalc(prevMonth, prevYear)
 })
 
-for(var i=0; i<daysInCurrentMonth; i++) {
-    var count = i+1
-    $(".days").append('<div id="day">' + count + '</div>')
-}
-
-for(let i=firstDay-1;i>0;i--) {
-    $("<div></div>").insertBefore("#day")
-}
-
-for(let i=lastDay; i<7;i++) {
-    $(".days").append("<div></div>")
-}
-
-console.log(firstDay)
-
 $(document).on('load', animation())
 $(document).on('load', monthCalc(new Date().getMonth(), currentYear))
