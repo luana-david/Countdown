@@ -120,35 +120,38 @@ $(".prev").on('click', function() {
     monthCalc(prevMonth, prevYear)
 })
 
+var intervalId = null
 $(".days").on('click', '#day' , function() {
     calcDate = new Date(currentYear, currentMonth, $(this).text())
     $(this).parent().children("#day").removeClass("selectedDay")
     $(this).addClass("selectedDay")
     $(".selectedDateInfo").text('Until '+ $(this).text() + ' ' + Months[currentMonth] + ' ' + currentYear)
+    $(".confetti").text('')
+    clearInterval(intervalId)
     if(calcDate < new Date()) {
         var confettiNumber = 50
         for(var i=0;i<confettiNumber;i++) {
-            $(".confetti").append('<div class="individual-confetti" style="transform: translate3d('+ Math.random()*1000 +'px,'+ Math.random()*1000 + 'px, 0); background-color: hsl('+ Math.floor(Math.random()*359) +',100%, 50%)"></div>')
+            $(".confetti").append('<div class="individual-confetti" style="transform: translate3d('+ Math.random()*1000 +'px,'+ Math.random()*200 + 'px, 0); background-color: hsl('+ Math.floor(Math.random()*359) +',100%, 50%)"></div>')
         }
-    }
-    setInterval(() => {
-        const daysLeft = Math.floor(Math.abs((calcDate - new Date()))/(1000 * 60 *60 *24))
-        const hoursLeft = Math.floor((23 - new Date().getHours()))
-        const minutesLeft = Math.floor((59 - new Date().getMinutes()))
-        const secondsLeft = Math.floor((59 - new Date().getSeconds()))
-        if(calcDate < new Date()) {
-            $("#daysLeft").text('0')
-            $("#hoursLeft").text('0')
-            $("#minutesLeft").text('0')
-            $("#secondsLeft").text('0') 
-        } else {
+        $("#daysLeft").text('0')
+        $("#hoursLeft").text('0')
+        $("#minutesLeft").text('0')
+        $("#secondsLeft").text('0')
+        $(".info").slideDown()
+    } else {
+        intervalId = setInterval(() => {
+            const daysLeft = Math.floor(Math.abs((calcDate - new Date()))/(1000 * 60 *60 *24))
+            const hoursLeft = Math.floor((23 - new Date().getHours()))
+            const minutesLeft = Math.floor((59 - new Date().getMinutes()))
+            const secondsLeft = Math.floor((59 - new Date().getSeconds()))
             $("#daysLeft").text(daysLeft)
             $("#hoursLeft").text(hoursLeft)
             $("#minutesLeft").text(minutesLeft)
             $("#secondsLeft").text(secondsLeft)
-        }
-        $(".info").slideDown()
-    }, 1000)
+            $(".info").slideDown()
+            console.log('i am here');
+        }, 1000)
+    }
 })
 
 $(document).on('load', animation())
