@@ -57,6 +57,9 @@ function monthCalc(month, year) {
     $("#currentMonth").text(Months[currentMonth])
     $("#currentYear").text(year)
 
+    $(".calendar-header").css('background-color', colors[month])
+    $(".tooltip").css("border-bottom", '10px solid '+ colors[month])
+
     $(".days").empty()
 
     for(var i=0; i<daysInCurrentMonth; i++) {
@@ -72,8 +75,15 @@ function monthCalc(month, year) {
         $(".days").append("<div></div>")
     }
     
-    $(".next").text(Months[currentMonth].slice(0, 3))
+    if(currentMonth<11) {
+        $(".next").text(Months[currentMonth+1].slice(0, 3))
+    } else {
+        $(".next").text(Months[0].slice(0, 3))
+    }
+    
     $(".prev").text(Months[lastMonth].slice(0, 3))
+
+    console.log(colors[month], month)
 }
 
 var Months = ['January',
@@ -88,6 +98,8 @@ var Months = ['January',
             'October',
             'November',
             'December']
+
+var colors = ['rgb(159, 146, 225)', 'rgb(146, 186, 225)', 'rgb(164, 244, 221 )', 'rgb(164, 244, 181 )', 'rgb(194, 244, 164)', 'rgb(242, 253, 159)', 'rgb(246, 255, 110 )', 'rgb(255, 226, 110)', 'rgb(255, 180, 110 )', 'rgb(236, 142, 116)', 'rgb(218, 116, 154)', 'rgb(212, 146, 225)']
 
 $(".next").on('click', function() {
     var nextMonth
