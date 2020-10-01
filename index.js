@@ -130,10 +130,17 @@ $(".days").on('click', '#day' , function() {
         const hoursLeft = Math.floor((23 - new Date().getHours()))
         const minutesLeft = Math.floor((59 - new Date().getMinutes()))
         const secondsLeft = Math.floor((59 - new Date().getSeconds()))
-        $("#daysLeft").text(daysLeft)
-        $("#hoursLeft").text(hoursLeft)
-        $("#minutesLeft").text(minutesLeft)
-        $("#secondsLeft").text(secondsLeft)
+        if(calcDate < new Date()) {
+            $("#daysLeft").text('0')
+            $("#hoursLeft").text('0')
+            $("#minutesLeft").text('0')
+            $("#secondsLeft").text('0') 
+        } else {
+            $("#daysLeft").text(daysLeft)
+            $("#hoursLeft").text(hoursLeft)
+            $("#minutesLeft").text(minutesLeft)
+            $("#secondsLeft").text(secondsLeft)
+        }
         $(".info").slideDown()
     }, 1000)
 })
