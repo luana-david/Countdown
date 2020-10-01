@@ -98,6 +98,16 @@ button:focus {
     min-width: 350px;
     height: auto;
     margin-top: 1rem;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    border-bottom: 10px solid thistle;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 }
 
 .calendar-header, .calendar-content, .days {
