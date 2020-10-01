@@ -71,7 +71,6 @@ function monthCalc(month, year) {
     
     $(".prev").text(Months[lastMonth].slice(0, 3))
 
-    console.log(colors[month], month)
 }
 
 var Months = ['January',
@@ -119,6 +118,8 @@ $(".prev").on('click', function() {
 
 $(".days").on('click', '#day' , function() {
     calcDate = new Date(currentYear, currentMonth, $(this).text())
+    $(this).parent().children("#day").removeClass("selectedDay")
+    $(this).addClass("selectedDay")
     setInterval(() => {
         const daysLeft = Math.floor(Math.abs((calcDate - new Date()))/(1000 * 60 *60 *24))
         const hoursLeft = Math.floor((23 - new Date().getHours()))
