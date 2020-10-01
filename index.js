@@ -72,8 +72,8 @@ function monthCalc(month, year) {
         $(".days").append("<div></div>")
     }
     
-    $(".next").text(Months[currentMonth])
-    $(".prev").text(Months[lastMonth])
+    $(".next").text(Months[currentMonth].slice(0, 3))
+    $(".prev").text(Months[lastMonth].slice(0, 3))
 }
 
 var Months = ['January',
