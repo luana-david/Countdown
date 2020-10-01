@@ -125,6 +125,12 @@ $(".days").on('click', '#day' , function() {
     $(this).parent().children("#day").removeClass("selectedDay")
     $(this).addClass("selectedDay")
     $(".selectedDateInfo").text('Until '+ $(this).text() + ' ' + Months[currentMonth] + ' ' + currentYear)
+    if(calcDate < new Date()) {
+        var confettiNumber = 50
+        for(var i=0;i<confettiNumber;i++) {
+            $(".confetti").append('<div class="individual-confetti" style="transform: translate3d('+ Math.random()*1000 +'px,'+ Math.random()*1000 + 'px, 0); background-color: hsl('+ Math.floor(Math.random()*359) +',100%, 50%)"></div>')
+        }
+    }
     setInterval(() => {
         const daysLeft = Math.floor(Math.abs((calcDate - new Date()))/(1000 * 60 *60 *24))
         const hoursLeft = Math.floor((23 - new Date().getHours()))
