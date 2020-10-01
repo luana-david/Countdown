@@ -99,6 +99,7 @@ button:focus {
     height: auto;
     margin-top: 1rem;
     position: relative;
+    display: none;
 }
 
 .tooltip {
@@ -121,7 +122,7 @@ button:focus {
 .days {
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 0.75rem;
+    margin: 0.75rem 0.5em;
 }
 
 .days div, .calendar-content div {
