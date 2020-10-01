@@ -56,7 +56,7 @@ for(let i=firstDay-1;i>0;i--) {
     $("<div></div>").insertBefore("#day")
 }
 
-for(let i=0; i<=lastDay;i++) {
+for(let i=lastDay; i<7;i++) {
     $(".days").append("<div></div>")
 }
 
