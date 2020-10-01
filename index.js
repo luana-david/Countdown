@@ -94,9 +94,20 @@ $(".next").on('click', function() {
     }
     
     monthCalc(nextMonth, nextYear)
+})
 
-    console.log(currentYear)
+$(".prev").on('click', function() {
+    var prevMonth
+    var prevYear
+    if(currentMonth>0) {
+        prevMonth = currentMonth-1
+        prevYear = currentYear
+    } else {
+        prevMonth = 11
+        prevYear = currentYear -1
+    }
 
+    monthCalc(prevMonth, prevYear)
 })
 
 for(var i=0; i<daysInCurrentMonth; i++) {
