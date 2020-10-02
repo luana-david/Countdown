@@ -42,6 +42,8 @@ p {
     color: rgb(245, 246, 248);
 }
 
+/* Animation for Countdown! text */
+
 @keyframes text {
     from {
         transform: translateY(-200px) skew(-10deg);
@@ -54,6 +56,8 @@ p {
     }
 }
 
+/* Animation to set the moment the Select Date button apears */
+
 @keyframes btn {
     0% {
         opacity: 0;
@@ -63,7 +67,7 @@ p {
     }
 }
 
-/* Select Calendar */
+/* Button Select Calendar */
 
 .btn {
     border: none;
@@ -205,6 +209,8 @@ button:focus {
     font-weight: 600;
     font-size: 1.25rem;
 }
+
+/* Style result area */
 
 #result {
     display: flex;
