@@ -1,5 +1,7 @@
 var calcDate = new Date();
 
+//Set animation header
+
 function animation() {
     var el ='Countdown!'
     var elSplit = el.split('')
@@ -11,9 +13,13 @@ function animation() {
     }
 }
 
+//Add slide-toggle animation to calendar on the click of the button
+
 $(".btn").on('click', function() {
     $(".calendar").slideToggle(300)
 })
+
+//Set variables to create calendar
 
 var date = new Date()
 var currentYear = new Date().getFullYear()
@@ -24,6 +30,8 @@ var lastDay
 
 var lastMonth 
 var daysLastMonth
+
+//Function to create calendar : selected month, year, day, change months on click of a button
 
 function monthCalc(month, year) {
     currentMonth = month
@@ -90,7 +98,11 @@ var Months = ['January',
             'November',
             'December']
 
+
+//Colors for each month
 var colors = ['rgb(159, 146, 225)', 'rgb(146, 186, 225)', 'rgb(164, 244, 221 )', 'rgb(164, 244, 181 )', 'rgb(194, 244, 164)', 'rgb(242, 253, 159)', 'rgb(246, 255, 110 )', 'rgb(255, 226, 110)', 'rgb(255, 180, 110 )', 'rgb(236, 142, 116)', 'rgb(218, 116, 154)', 'rgb(212, 146, 225)']
+
+//Change month when clicking on next/prev month
 
 $(".next").on('click', function() {
     var nextMonth
@@ -120,6 +132,8 @@ $(".prev").on('click', function() {
     monthCalc(prevMonth, prevYear)
 })
 
+//Start countdown when selecting a day
+
 var intervalId = null
 $(".days").on('click', '#day' , function() {
     calcDate = new Date(currentYear, currentMonth, $(this).text())
@@ -129,6 +143,8 @@ $(".days").on('click', '#day' , function() {
     $(".confetti").text('')
     clearInterval(intervalId)
     if(calcDate < new Date()) {
+
+        //If date is in prezent or in the past, a confetti animation apears
         var confettiNumber = 50
         for(var i=0;i<confettiNumber;i++) {
             $(".confetti").append('<div class="individual-confetti" style="transform: translate3d('+ Math.random()*1000 +'px,'+ Math.random()*200 + 'px, 0); background-color: hsl('+ Math.floor(Math.random()*359) +',100%, 50%)"></div>')
