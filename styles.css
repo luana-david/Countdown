@@ -39,6 +39,7 @@ p {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
 }
 
 @keyframes text {
@@ -197,7 +198,12 @@ button:focus {
 }
 
 #currentYear {
-    text-shadow: 3px 2px 2px rgba(150, 150, 150, 1);
+    text-shadow: 3px 2px 2px rgb(117, 117, 117);
+}
+
+#currentMonth {
+    font-weight: 600;
+    font-size: 1.25rem;
 }
 
 #result {
@@ -221,4 +227,25 @@ button:focus {
 
 .result span + span {
     font-weight: normal;
+}
+
+.confetti {
+    position: absolute;
+    top: 25%;
+    right: 70%;
+}
+
+.individual-confetti {
+    width: 20px;
+    height: 10px;
+    opacity: 0;
+    background-color: teal;
+    animation: confetti 2s ease-out forwards;
+}
+
+@keyframes confetti {
+    from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }
