@@ -7,6 +7,7 @@
 body {
     background-color: #000;
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 
 .container {
@@ -253,5 +254,51 @@ button:focus {
     from {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 6rem;
+    }
+
+    #result {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .result {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 4rem;
+        margin-top: 2em;
+    }
+
+    #result {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .result {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 3rem;
+        margin-top: 2em;
+    }
+
+    #result {
+        flex-wrap: wrap;
+    }
+
+    .result {
+        font-size: 1.5em;
     }
 }
